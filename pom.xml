@@ -18,6 +18,7 @@
         <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
         <gmavenplus-plugin.version>1.6</gmavenplus-plugin.version>
 
+        <lombok.version>1.18.4</lombok.version>
     </properties>
 
     <groupId>com.anybbo</groupId>
@@ -25,7 +26,9 @@
     <version>1.0</version>
 
     <modules>
-        <module>anybbo-eureka</module>
+        <module>anybbo-eureka-server</module>
+        <module>anybbo-eureka-client</module>
+        <module>anybbo-ribbon-consumer</module>
     </modules>
 
     <parent>
@@ -70,6 +73,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
         </dependency>
     </dependencies>
 
