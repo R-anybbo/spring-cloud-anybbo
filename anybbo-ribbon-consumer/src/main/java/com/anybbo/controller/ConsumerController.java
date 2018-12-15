@@ -1,5 +1,6 @@
 package com.anybbo.controller;
 
+import com.anybbo.service.HelloService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -15,11 +16,11 @@ import javax.annotation.Resource;
 public class ConsumerController {
 
     @Resource
-    private RestTemplate restTemplate;
+    private HelloService helloService;
 
     @GetMapping("/ribbon-consumer")
     String helloConsumer() {
-        return restTemplate.getForEntity("http://HELLO-SERVICE/hello", String.class).getBody();
+        return helloService.helloService();
     }
 
 }
