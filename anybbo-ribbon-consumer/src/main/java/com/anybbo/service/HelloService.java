@@ -1,6 +1,7 @@
 package com.anybbo.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -19,13 +20,12 @@ public class HelloService {
     @Resource
     private RestTemplate restTemplate;
 
-    @HystrixCommand(fallbackMethod = "helleFallback")
+    @HystrixCommand(fallbackMethod = "helleFallback", commandKey = "helloKey", commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000"),
+            @HystrixProperty(name = "execution.isolation.strategy", value = "THREAD")
+    })
     public String helloService() {
-        long start = System.currentTimeMillis();
-        String result = restTemplate.getForEntity("http://HELLO-SERVICE/hello", String.class).getBody();
-        long end = System.currentTimeMillis();
-        log.info("Spend time:" + (end - start));
-        return result;
+        return restTemplate.getForEntity("http://HELLO-SERVICE/hello", String.class).getBody();
     }
 
     public String helleFallback() {
