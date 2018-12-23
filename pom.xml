@@ -29,6 +29,7 @@
         <module>anybbo-eureka-server</module>
         <module>anybbo-eureka-client</module>
         <module>anybbo-ribbon-consumer</module>
+        <module>hello-service-api</module>
     </modules>
 
     <parent>

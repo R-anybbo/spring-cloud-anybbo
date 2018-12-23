@@ -3,17 +3,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>anybbo-eureka-client</artifactId>
+
+    <groupId>com.anybbo.feign</groupId>
+    <artifactId>anybbo-feign-consumer</artifactId>
     <version>1.0</version>
+    <name>anybbo-feign-consumer</name>
     <packaging>jar</packaging>
-    <name>anybbo-eureka-client</name>
-    <description>eureka client for Spring Boot</description>
+    <description>Spring Boot anybbo ribbon consumer</description>
 
     <parent>
         <groupId>com.anybbo</groupId>
         <artifactId>anybbo-spring-cloud</artifactId>
         <version>1.0</version>
-        <relativePath>pom.xml</relativePath>
     </parent>
 
     <properties>
@@ -27,12 +28,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.anybbo.feign</groupId>
             <artifactId>hello-service-api</artifactId>
@@ -63,11 +66,7 @@
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
             <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
         </repository>
     </repositories>
-
 
 </project>
