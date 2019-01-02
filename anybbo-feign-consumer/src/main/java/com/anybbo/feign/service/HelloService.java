@@ -1,6 +1,7 @@
 package com.anybbo.feign.service;
 
 import com.anybbo.api.model.User;
+import com.anybbo.feign.config.DisableHystrixConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
  * @date 2018/12/23
  * @copyright © 2018 anybbo
  */
-@FeignClient("HELLO-SERVICE")
+@FeignClient(value = "HELLO-SERVICE", configuration = DisableHystrixConfiguration.class)
 public interface HelloService {
 
     @GetMapping("/hello")
