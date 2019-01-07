@@ -34,6 +34,7 @@
         <module>anybbo-hystrix-dashboard</module>
         <module>anybbo-api-gateway</module>
         <module>anybbo-config-server</module>
+        <module>anybbo-config-client</module>
     </modules>
 
     <parent>
