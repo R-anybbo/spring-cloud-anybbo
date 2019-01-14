@@ -35,6 +35,7 @@
         <module>anybbo-api-gateway</module>
         <module>anybbo-config-server</module>
         <module>anybbo-config-client</module>
+        <module>anybbo-rabbitmq-hello</module>
     </modules>
 
     <parent>
